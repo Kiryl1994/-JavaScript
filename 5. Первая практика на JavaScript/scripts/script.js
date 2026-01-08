@@ -5,7 +5,7 @@ var mercedes = {
     year: 2015,
     color: 'black',
     hp: 300,
-    forSale: 'true'
+    forSale: true
 }
 
 var bmw = {
@@ -15,7 +15,7 @@ var bmw = {
     year: 2023,
     color: 'white',
     hp: 313,
-    forSale: 'false'
+    forSale: false
 }
 
 var audi = {
@@ -25,11 +25,11 @@ var audi = {
     year: 2025,
     color: 'blue',
     hp: 249,
-    forSale: 'true'
+    forSale: true
 }
 
 // 1. Текущий год
-var year = 2025;
+var year = new Date().getFullYear();
 
 // 2. Возраст автомобиля (carAge)
 mercedes.carAge = year - mercedes.year;
@@ -45,6 +45,8 @@ var names =
     bmw.name + " " + bmw.model + ", " +
     audi.name + " " + audi.model;
 alert('Марка и модель всех авто - ' + names);
+
+//var names2 = `${mercedes.name} ${mercedes.model} ${bmw.name} ${bmw.model} ${audi.name} ${audi.model}`;
 
 // 4. Средний возраст автомобилей
 var averageAge = (mercedes.carAge + bmw.carAge + audi.carAge) / 3;
@@ -85,14 +87,14 @@ if (car.carAge === 0) {
     alert('Лет этому авто: ' + car.carAge);
 }
 
-// 4. Расход топлива (тернарный оператор)
-var consumption;
+// 4. Расход топлива
+var consumption = car.engine > 3.0
+  ? "Прожорливый автомобиль"
+  : "Экономичный автомобиль";
 
-if (car.engine > 3.0) {
-    alert('Прожорливый автомобиль');
-} else {
-    alert('Экономичный автомобиль');
-}
+alert(consumption);
+
+
 
 var russianColor;
 
@@ -121,4 +123,3 @@ switch (car.color) {
 }
 
 alert(russianColor);
-
